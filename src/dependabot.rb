@@ -128,7 +128,7 @@ def update(source, credentials_repository, credentials_dependencies)
   return required_updates
 end
 
-directory_updates = []
+directory_updates = Array.new
 
 directory.split("\n").each do |dir|
   source = Dependabot::Source.new(
@@ -137,7 +137,7 @@ directory.split("\n").each do |dir|
     directory: dir.strip,
     branch: target_branch,
   )
-  directory_updates = directory_updates + update(source, credentials_repository, credentials_dependencies)
+  directory_updates.concat(update(source, credentials_repository, credentials_dependencies))
 end
 
 if directory_updates.empty?
