@@ -1,0 +1,29 @@
+name: 'terraform-module-versions'
+description: 'Checks Terraform modules for outdated versions (based on dependabot)'
+author: 'trumant'
+inputs:
+  directory:
+    description: >
+      Where to look for terraform files to check for dependency updates.
+      The directory is relative to the repository's root.
+      Multiple paths can be provided by splitting them with a new line.
+      Example:
+        directory: |
+          /path/to/first/module
+          /path/to/second/module
+    default: "/"
+    required: false
+  github_dependency_token:
+    description: >
+      Auth token used for checking terraform dependencies that are from github repositories.
+      Token requires read access to all modules that you want to automatically check for updates
+      [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+    default: ${{ github.token }}
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'docker://trumant/terraform-module-versions-action'
+branding:
+  icon: 'package'
+  color: 'orange'
