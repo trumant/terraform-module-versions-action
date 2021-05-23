@@ -147,6 +147,7 @@ else
   output = "Modules are not up to date\n"
   output += SortedSet.new(directory_updates).to_a().join("\n")
   if ENV['GITHUB_ACTIONS']
+    puts output
     puts "::set-output name=message::#{URI.escape(output)}"
   else
     puts output
