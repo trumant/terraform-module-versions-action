@@ -143,6 +143,7 @@ end
 if directory_updates.empty?
   puts "All modules are up to date"
 else
+  puts "Modules are not up to date"
   SortedSet.new(directory_updates).each do |item|
     puts item
   end
