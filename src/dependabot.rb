@@ -13,6 +13,7 @@ require "dependabot/file_updaters"
 require "dependabot/pull_request_creator"
 require "dependabot/omnibus"
 
+$stdout.sync = true
 
 # Utilize the github env variable per default
 repo_name = ENV["GITHUB_REPOSITORY"]
@@ -143,9 +144,8 @@ end
 if directory_updates.empty?
   puts "All modules are up to date"
 else
-  puts "Modules are not up to date"
-  SortedSet.new(directory_updates).each do |item|
-    puts item
-  end
+  output = "Modules are not up to date\n"
+  output += SortedSet.new(directory_updates).to_a().join("\n")
+  puts output
   exit!
 end
