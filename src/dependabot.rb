@@ -30,7 +30,7 @@ if directory.empty?
 end
 
 # Define the target branch
-target_branch = ENV["GITHUB_HEAD_REF"]
+target_branch = ENV["GITHUB_SHA"]
 if target_branch.empty?
   target_branch=nil
 end
