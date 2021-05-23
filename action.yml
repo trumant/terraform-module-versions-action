@@ -13,6 +13,12 @@ inputs:
           /path/to/second/module
     default: "/"
     required: false
+  token:
+    description: >
+      Auth token used to read the repository being processed
+      [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+    default: ${{ github.token }}
+    required: false
   github_dependency_token:
     description: >
       Auth token used for checking terraform dependencies that are from github repositories.

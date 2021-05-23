@@ -26,11 +26,16 @@ module versions should be changed in each file.
     # Default: "/"
     directory: ''
 
+    # Auth token used to push the changes back to github and create the pull request with.
+    # [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+    # default: ${{ github.token }}
+    token: ''
+
     # Auth token used for checking terraform dependencies that are from github repositories.
     # Token requires read access to all modules that you want to automatically check for updates
     # [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
     # default: ${{ github.token }}
-    github_dependency_token:         
+    github_dependency_token:
 ```
 <!-- end usage -->
 

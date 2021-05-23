@@ -36,7 +36,7 @@ if target_branch.empty?
 end
 
 # Token to be used for fetching repository files
-repo_token = ENV["GITHUB_TOKEN"]
+repo_token = ENV["INPUT_TOKEN"]
 if repo_token.empty?
   print "A github token needs to be provided"
   exit(1)
