@@ -30,13 +30,13 @@ if directory.empty?
 end
 
 # Define the target branch
-target_branch = ENV["GITHUB_SHA"]
+target_branch = ENV["GITHUB_HEAD_REF"]
 if target_branch.empty?
   target_branch=nil
 end
 
 # Token to be used for fetching repository files
-repo_token = ENV["INPUT_GITHUB_DEPENDENCY_TOKEN"]
+repo_token = ENV["GITHUB_TOKEN"]
 if repo_token.empty?
   print "A github token needs to be provided"
   exit(1)
