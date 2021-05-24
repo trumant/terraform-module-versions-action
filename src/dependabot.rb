@@ -148,7 +148,7 @@ else
   output += SortedSet.new(directory_updates).to_a().join("\n")
 end
 
-File.open("terraform-module-versions-action.md", "w") do |file|
+File.open("/github/home/terraform-module-versions-action.md", "w") do |file|
   file.puts "## Terraform Module Versions Check Results"
   file.puts output
 end
