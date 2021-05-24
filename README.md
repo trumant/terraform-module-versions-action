@@ -10,6 +10,8 @@ This action checks all Terraform module references in a Terraform project to
 identify, which if any are out of date. It will then provide guidance on which
 module versions should be changed in each file.
 
+All output will be written to a file named `terraform-module-versions-action.md`
+
 ## Usage
 
 <!-- start usage -->

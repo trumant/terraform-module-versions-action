@@ -4,7 +4,6 @@
 # outdated module reference is listed along with the proposed
 # version update to be made.
 
-require "cgi"
 require "set"
 
 require "dependabot/file_fetchers"
@@ -143,15 +142,19 @@ directory.split("\n").each do |dir|
 end
 
 if directory_updates.empty?
-  puts "All modules are up to date"
+  output "**All modules are up to date**"
 else
-  output = "Modules are not up to date\n"
+  output = "**Modules are not up to date**\n"
   output += SortedSet.new(directory_updates).to_a().join("\n")
-  if ENV['GITHUB_ACTIONS']
-    puts output
-    puts "::set-output name=message::#{CGI.escape(output)}"
-  else
-    puts output
-  end
+end
+
+File.open("terraform-module-versions-action.md", "w") do |file|
+  file.puts "## Terraform Module Versions Check Results"
+  file.puts output
+end
+
+puts output
+
+unless directory_updates.empty?
   exit!
 end

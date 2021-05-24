@@ -26,9 +26,6 @@ inputs:
       [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
     default: ${{ github.token }}
     required: false
-outputs:
-  message:
-    description: The scripts output
 runs:
   using: 'docker'
   image: 'docker://trumant/terraform-module-versions-action'
