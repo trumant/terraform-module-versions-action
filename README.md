@@ -12,6 +12,25 @@ module versions should be changed in each file.
 
 All output will be written to a file named `terraform-module-versions-action.md`
 
+## Example Output
+
+### Nothing outdated
+
+```markdown
+## Terraform Module Versions Check Results
+**All modules are up to date**
+```
+
+### Multiple outdated module references
+
+```markdown
+## Terraform Module Versions Check Results
+**Modules are not up to date**
+File /terraform/base/alb.tf needs module ssh://git@github.com/YourOrgHere/terraform-aws-eks-load-balancer updated from 2020.12.10.1-18 to 2021.5.20.1-32
+File /terraform/base/alb.tf needs module ssh://git@github.com/YourOrgHere/terraform-aws-s3 updated from 2020.12.11.2-24 to 2021.5.20.1-30
+File /terraform/base/redis.tf needs module git@github.com:YourOrgHere/terraform-aws-elasticache-redis.git updated from 2021.3.1.1-13 to 2021.5.20.3-16
+```
+
 ## Usage
 
 <!-- start usage -->
