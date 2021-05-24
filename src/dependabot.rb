@@ -142,7 +142,7 @@ directory.split("\n").each do |dir|
 end
 
 if directory_updates.empty?
-  output "**All modules are up to date**"
+  output = "**All modules are up to date**"
 else
   output = "**Modules are not up to date**\n"
   output += SortedSet.new(directory_updates).to_a().join("\n")
