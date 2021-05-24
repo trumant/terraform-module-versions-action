@@ -4,7 +4,7 @@
 # outdated module reference is listed along with the proposed
 # version update to be made.
 
-require "CGI"
+require "cgi"
 require "set"
 
 require "dependabot/file_fetchers"
