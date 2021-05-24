@@ -148,7 +148,9 @@ else
   output += SortedSet.new(directory_updates).to_a().join("\n")
 end
 
-File.open("/github/home/terraform-module-versions-action.md", "w") do |file|
+path = ENV['GITHUB_ACTION'] ? "#{ENV['GITHUB_WORKSPACE']}/" : ""
+
+File.open("#{path}terraform-module-versions-action.md", "w") do |file|
   file.puts "## Terraform Module Versions Check Results"
   file.puts output
 end
