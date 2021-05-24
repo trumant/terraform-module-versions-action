@@ -4,6 +4,7 @@
 # outdated module reference is listed along with the proposed
 # version update to be made.
 
+require "CGI"
 require "set"
 
 require "dependabot/file_fetchers"
@@ -148,7 +149,7 @@ else
   output += SortedSet.new(directory_updates).to_a().join("\n")
   if ENV['GITHUB_ACTIONS']
     puts output
-    puts "::set-output name=message::#{URI.escape(output)}"
+    puts "::set-output name=message::#{CGI.escape(output)}"
   else
     puts output
   end
