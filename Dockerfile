@@ -14,8 +14,8 @@ ENV DEPENDABOT_NATIVE_HELPERS_PATH="/usr/src/app/native-helpers"
 COPY ./src /usr/src/app
 COPY ./src/run-action /usr/local/bin/run-action
 RUN apt-get update && \
-    apt-get install -y libxml2 libxml2-dev libxslt1-dev build-essential  && \
-    apt-get install -y git wget && \
+    apt-get install -y libxml2 libxml2-dev libxslt1-dev build-essential && \
+    apt-get install -y curl git wget && \
     export PATH="$PATH:$DEPENDABOT_NATIVE_HELPERS_PATH/terraform/bin" && \
     bundle install && \
     mkdir -p $DEPENDABOT_NATIVE_HELPERS_PATH/terraform && \

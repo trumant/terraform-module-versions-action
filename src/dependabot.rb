@@ -82,7 +82,6 @@ def update(source, credentials_repository, credentials_dependencies)
   )
 
   files = fetcher.files
-  commit = fetcher.commit
 
   ##############################
   # Parse the dependency files #
@@ -123,7 +122,7 @@ def update(source, credentials_repository, credentials_dependencies)
       requirements_to_unlock: requirements_to_unlock
     )
     updated_deps.each do |updated_dep|
-        required_updates << "File #{source.directory}/#{updated_dep.requirements[0][:file]} needs module #{updated_dep.requirements[0][:source][:url]} updated from #{updated_dep.previous_version} to #{updated_dep.version}"
+      required_updates << "File #{source.directory}/#{updated_dep.requirements[0][:file]} needs module #{updated_dep.requirements[0][:source][:url]} updated from #{updated_dep.previous_version} to #{updated_dep.version}"
     end
   end
   return required_updates
