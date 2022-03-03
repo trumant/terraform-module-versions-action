@@ -10,7 +10,7 @@ This action checks all Terraform module references in a Terraform project to
 identify, which if any are out of date. It will then provide guidance on which
 module versions should be changed in each file.
 
-All output will be written to a file named `terraform-module-versions-action.md`
+All output will be written to a file named `terraform-module-versions-action.md`.
 
 ## Example Output
 
@@ -62,9 +62,9 @@ File /terraform/base/redis.tf needs module git@github.com:YourOrgHere/terraform-
 
 ## Examples
 
-### Basic example 
+### Basic example
 
-In this basic example, the action will run against pull requests
+In this basic example, the action will run against pull requests:
 
 ```yaml
 name: Check Terraform module versions
@@ -83,4 +83,4 @@ jobs:
 
 ## License
 
-The scripts and documentation in this project are released under the [MIT License](LICENSE)
+The scripts and documentation in this project are released under the [MIT License](LICENSE).
