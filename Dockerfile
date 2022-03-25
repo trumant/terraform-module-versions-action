@@ -1,4 +1,4 @@
-FROM ruby:2.6.7-slim
+FROM ruby:2.6.9-slim
 
 LABEL "maintainer"="Travis Truman <trumant@gmail.com>" \
       "repository"="https://github.com/trumant/terraform-module-versions-action" \
@@ -21,7 +21,7 @@ RUN apt-get update && \
     mkdir -p $DEPENDABOT_NATIVE_HELPERS_PATH/terraform && \
     cp -r $(bundle show dependabot-terraform)/helpers $DEPENDABOT_NATIVE_HELPERS_PATH/terraform/helpers && \
     $DEPENDABOT_NATIVE_HELPERS_PATH/terraform/helpers/build $DEPENDABOT_NATIVE_HELPERS_PATH/terraform && \
-    apt-get remove -y build-essential patch perl perl-modules-5.28 && \
+    apt-get remove -y build-essential patch perl && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /tmp/*
