@@ -28,7 +28,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://trumant/terraform-module-versions-action'
+  image: 'docker://cbbond/terraform-module-versions-action'
 branding:
   icon: 'package'
   color: 'orange'
